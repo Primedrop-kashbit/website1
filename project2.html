@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fitness Club | Gym & Fitness</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        .video-section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            background-size: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent overlay */
+        }
+
+        .video-overlay h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .video-overlay p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Hero Section */
+
+
+        .btn {
+            text-align: center;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* Facilities Section */
+        .facilities-section {
+            padding: 2rem;
+            background-color: white;
+            text-align: center;
+        }
+
+        .facilities-section h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .facilities {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .facility-card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 30%;
+        }
+
+        .facility-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .facility-card h3 {
+            padding: 0.5rem;
+        }
+
+        .facility-card p {
+            padding: 0.5rem;
+            color: #333;
+        }
+
+        /* Trainers Section */
+        .trainers-section {
+            padding: 2rem;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .trainers-section h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .trainers {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .trainer-card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            width: 30%;
+        }
+
+        .trainer-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .trainer-card h3 {
+            padding: 0.5rem;
+        }
+
+        .trainer-card p {
+            padding: 0.5rem;
+            color: #333;
+        }
+
+        /* Membership Section */
+        .membership-section {
+            padding: 2rem;
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+
+        .membership-section h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 2rem;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            margin: 0.5rem 0;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Fitness Club</h1>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#trainers">Trainers</a></li>
+                <li><a href="#membership">Membership</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+
+
+    <section class="video-section">
+        <video autoplay muted loop id="bg-video">
+            <source src="images/Gym cinematic promotion video(360P).mp4">
+
+        </video>
+
+        <div class="video-verlay"> <br><br>
+
+            <h1 style="text-align: center;">Welcome to the Fitness Club</h1>
+            <h3 style="text-align: center;">Start your fitness journey today!</h3>
+
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="facilities-section">
+        <h2>Our Facilities</h2>
+        <div class="facilities">
+            <div class="facility-card">
+                <img src="images/weight lift.png" alt="Weights Area">
+                <h3>Weights Area</h3>
+                <p>Top-notch equipment to help you build strength and muscle.</p>
+            </div>
+            <div class="facility-card">
+                <img src="images/cardio room.png" alt="Cardio Area">
+                <h3>Cardio Area</h3>
+                <p>Modern cardio machines to keep your heart healthy and active.</p>
+            </div>
+            <div class="facility-card">
+                <img src="images/yoga room.png" alt="Yoga Room">
+                <h3>Yoga Room</h3>
+                <p>A peaceful space for yoga and meditation to relax your mind and body.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainers Section -->
+    <section id="trainers" class="trainers-section">
+        <h2>Meet Our Trainers</h2>
+        <div class="trainers">
+            <div class="trainer-card">
+                <a href="https://en.wikipedia.org/wiki/Khabib_Nurmagomedov">
+                    <img src="images/khabib nurmegomedow.png" alt="Trainer 1">
+                </a>
+                <h3>Khabib Nurmegomedow</h3>
+                <p>Strength and Conditioning Coach</p>
+            </div>
+            <div class="trainer-card">
+                <a href="https://en.wikipedia.org/wiki/Islam_Makhachev">
+                <img src="images/islam makhachev.png" alt="Trainer 2">
+            </a>
+                <h3>Islam makhachev</h3>
+                <p>Certified martialarts Instructor</p>
+            </div>
+            <div class="trainer-card">
+                <a  href="https://www.tapology.com/fightcenter/fighters/372567-owais-yakoob">
+
+
+                <img src="images/Owais yaqoob.png" alt="Trainer 3">
+                </a>
+                <h3>Owais Yaqoob</h3>
+                <p>Personal Trainer & Nutritionist</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section id="membership" class="membership-section">
+        <h2>Membership Plans</h2>
+        <p>Choose a membership plan that fits your lifestyle and start your fitness journey today.</p><br><br>
+        <a href="#" class="btn-primary">View Membership Plans</a>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to contact us using the form below.</p>
+        <div class="contact-form">
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea rows="5" placeholder="Your Message"></textarea>
+            <button>Send Message</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; All rights reserved </p>
+        <h3> designed by Yasir Hamid &trade;</h3>
+    </footer>
+</body>
+
+</html>
